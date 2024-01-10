@@ -21,30 +21,58 @@ function executeBasics() {
   let isOpen = true;
 
   const floatingButton = document.querySelector("#floatingButton");
+  const closeBtn = document.querySelector("#closeBtn");
   const sidebar = document.querySelector("#sidebar");
   const save = document.querySelector("#saveBtn");
   const list = document.querySelector("#list");
 
   let arr = JSON.parse(localStorage.getItem("pinChats")) || [];
 
-  // Accessing elements after they are created
-  floatingButton.addEventListener("click", () => {
-    console.log("Button Clicked");
-    console.log(sidebar.style.right);
+  function toggleSidebar() {
     if (isOpen) {
       sidebar.style.right = "-260px";
-      floatingButton.className = "float-btn arrow-left";
     } else {
       sidebar.style.right = "0";
-      floatingButton.className = "float-btn arrow-right";
     }
     isOpen = !isOpen;
+  }
+
+  // Accessing elements after they are created
+  floatingButton.addEventListener("click", () => {
+    toggleSidebar();
+  });
+  closeBtn.addEventListener("click", () => {
+    toggleSidebar();
   });
 
-  list.innerHTML = "";
-  arr.forEach((data) => {
-    list.innerHTML += `<a href='/c/${data.id}'>${data.name}</a>`;
-  });
+  function displayList() {
+    list.innerHTML = "";
+    arr.forEach((data, index) => {
+      const url = "/c/" + data.id;
+      const listItem = document.createElement("div");
+      listItem.classList.add("saved-link");
+      listItem.innerHTML = `<a href='${url}'>${data.name}</a><span class='pins'><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 7V21a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3M2 7h20M7 11V18M17 11V18" />
+      </svg></span>`;
+
+      const pin = listItem.querySelector(".pins");
+      pin.addEventListener("click", function () {
+        console.log(index, "Pin Removed");
+      });
+
+      list.appendChild(listItem);
+    });
+  }
 
   save.addEventListener("click", function () {
     const url = window.location.href;
@@ -58,11 +86,10 @@ function executeBasics() {
     localStorage.setItem("pinChats", JSON.stringify(arr));
     list.innerHTML = "";
     console.log(arr);
-    arr.forEach((data) => {
-      const url = "/c/" + data.id;
-      list.innerHTML += `<a href='${url}'>${data.name}</a>`;
-    });
+    displayList();
+    alert("Chat Saved");
   });
+  displayList();
 }
 
 run();

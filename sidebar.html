@@ -5,27 +5,47 @@
   </head>
   <body>
     <div id="sidebar" class="sidebar">
-      <div class="top-box">Pinned Chats</div>
-      <div class="add-box">
-        <button id="saveBtn">Save</button>
+      <div class="top-box">
+        <span>Saved Chats</span>
+        <button id="closeBtn">
+          <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M3.8 3.8L11.2 11.2M11.2 3.8L3.8 11.2"
+              stroke="#B3B3BE"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
       </div>
-
       <div id="list" class="list"><p>List appear here...</p></div>
-      <div id="floatingButton" class="float-btn arrow-right">
-        <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M11 7H4.83l2.58-2.59L6 3l-5 5 5 5 1.41-1.41L4.83 9H11z"
-            fill="#B3B3BE"
-          />
-        </svg>
-        <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M3.8 3.8L11.2 11.2M11.2 3.8L3.8 11.2"
-            stroke="#B3B3BE"
-            stroke-linecap="round"
-          />
-        </svg>
-      </div>
+    </div>
+    <div id="floatingButton" class="float-btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="16"
+        width="10"
+        viewBox="0 0 240 320"
+      >
+        <polygon
+          points="15,160 165,310 165,255 65,160 165,65 165,10"
+          fill="#B3B3BE"
+          stroke="#B3B3BE"
+          stroke-width="10"
+        />
+      </svg>
+    </div>
+    <div id="saveBtn" class="saved-btn" title="Pin this Chat">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 2H8C5.79 2 4 3.79 4 6v16l8-4 8 4V6c0-2.21-1.79-4-4-4zm-4 12l-4 2.02V6c0-1.1.9-2 2-2h4v10z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
   </body>
 </html>

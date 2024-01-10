@@ -7,22 +7,23 @@
   position: fixed;
   top: 0;
   right: 0px;
+  z-index: 999;
   height: 100vh;
   width: 260px;
   background-color: #000;
   transition: right 0.3s ease-in-out;
-  padding: 16px;
+  padding: 16px 8px;
 }
 .float-btn {
-  position: absolute;
-  top: 56px;
-  left: -56px;
+  position: fixed;
+  top: 10px;
+  right: 214px;
+  z-index: 998;
   font-size: 14px;
   width: 36px;
   aspect-ratio: 1;
   border-radius: 8px;
-  border: 1px solid #565869;
-  background-color: #343541;
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,60 +31,77 @@
 }
 .float-btn:hover {
   cursor: pointer;
-  background-color: #40414f;
+}
+.saved-btn {
+  position: fixed;
+  top: 10px;
+  right: 270px;
+  z-index: 1000;
+  font-size: 14px;
+  width: 36px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b3b3be;
+}
+.saved-btn:hover {
+  cursor: pointer;
+}
+.saved-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 4px 8px;
+}
+.saved-link span {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.saved-link span:hover {
+  cursor: pointer;
+  color: #991b1b;
+}
+.saved-link a {
+  width: calc(100% - 20px);
+  display: block;
+  text-decoration: none;
+  font-size: 12px;
+  white-space: nowrap;
+  word-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top-box {
   width: 100%;
   font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-.arrow-left svg:last-child {
-  display: none;
-}
-.arrow-left svg:first-child {
-  display: unset;
-}
-.arrow-right svg:last-child {
-  display: unset;
-}
-.arrow-right svg:first-child {
-  display: none;
-}
-.add-box {
-  width: 100%;
-  border-top: 1px solid #565869;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #565869;
-  margin: 8px 0;
-  padding: 8px 4px;
+  margin-bottom: 16px;
+  font-weight: 600;
 }
-.add-box input {
-  width: 100%;
-  height: 40px;
-  padding: 4px 8px;
-  border: 1px solid #565869;
-  color: #d9d9e3;
-  background: none;
-  border-radius: 8px;
+.top-box button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.add-box button {
-  width: 100%;
-  height: 40px;
-  background-color: #40414f;
-  border: 1px solid #565869;
-  color: #d9d9e3;
-  margin: 8px 0 0 0;
-  border-radius: 8px;
-}
-.add-box button:hover {
+.top-box button:hover {
   cursor: pointer;
 }
-.list a {
-  width: 100%;
-  margin-bottom: 8px;
-  display: block;
-  padding: 4px 8px;
-  font-size: 12px;
-  text-decoration: none;
+.list {
+  height: calc(100vh - 97px);
+  overflow-y: auto;
 }
