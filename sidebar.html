@@ -17,35 +17,37 @@
           </svg>
         </button>
       </div>
-      <div id="list" class="list"><p>List appear here...</p></div>
+      <div id="list" class="list">
+        <div class="saved-link"><a>List appear here...</a></div>
+      </div>
     </div>
-    <div id="floatingButton" class="float-btn">
+    <div id="floatingButton" class="sticky-btn float-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="16"
-        width="10"
-        viewBox="0 0 240 320"
-      >
-        <polygon
-          points="15,160 165,310 165,255 65,160 165,65 165,10"
-          fill="#B3B3BE"
-          stroke="#B3B3BE"
-          stroke-width="10"
-        />
-      </svg>
-    </div>
-    <div id="saveBtn" class="saved-btn" title="Pin this Chat">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="15"
-        viewBox="0 0 24 24"
+        width="16"
+        viewBox="0 0 512 512"
       >
         <path
-          d="M16 2H8C5.79 2 4 3.79 4 6v16l8-4 8 4V6c0-2.21-1.79-4-4-4zm-4 12l-4 2.02V6c0-1.1.9-2 2-2h4v10z"
-          fill="currentColor"
+          d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"
+          fill="#b3b3b3"
         />
       </svg>
     </div>
+    <div id="saveBtn" class="sticky-btn saved-btn" title="Pin this Chat">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="12"
+        width="10"
+        viewBox="0 0 384 512"
+        style="transform: rotate(30deg)"
+      >
+        <path
+          d="M32 32C32 14.3 46.3 0 64 0H320c17.7 0 32 14.3 32 32s-14.3 32-32 32H290.5l11.4 148.2c36.7 19.9 65.7 53.2 79.5 94.7l1 3c3.3 9.8 1.6 20.5-4.4 28.8s-15.7 13.3-26 13.3H32c-10.3 0-19.9-4.9-26-13.3s-7.7-19.1-4.4-28.8l1-3c13.8-41.5 42.8-74.8 79.5-94.7L93.5 64H64C46.3 64 32 49.7 32 32zM160 384h64v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V384z"
+          fill="#ffffff"
+        />
+      </svg>
+    </div>
+    <div id="toast" class="toast"></div>
   </body>
 </html>

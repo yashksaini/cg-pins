@@ -1,3 +1,10 @@
+:root {
+  --bg: #000;
+  --text: #e2e2e2;
+  --width: 260px;
+  --green: #28e98c;
+  --hover: #202123;
+}
 * {
   margin: 0;
   padding: 0;
@@ -9,43 +16,34 @@
   right: 0px;
   z-index: 999;
   height: 100vh;
-  width: 260px;
-  background-color: #000;
+  width: var(--width);
+  background-color: var(--bg);
   transition: right 0.3s ease-in-out;
   padding: 16px 8px;
+  color: var(--text);
 }
-.float-btn {
+.sticky-btn {
   position: fixed;
   top: 10px;
-  right: 214px;
   z-index: 998;
   font-size: 14px;
   width: 36px;
   aspect-ratio: 1;
   border-radius: 8px;
-  background-color: #000;
+  background-color: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #b3b3be;
+  color: var(--text);
+}
+.float-btn {
+  right: calc(var(--width) - 46px);
 }
 .float-btn:hover {
   cursor: pointer;
 }
 .saved-btn {
-  position: fixed;
-  top: 10px;
-  right: 270px;
-  z-index: 1000;
-  font-size: 14px;
-  width: 36px;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #b3b3be;
+  right: calc(var(--width) + 10px);
 }
 .saved-btn:hover {
   cursor: pointer;
@@ -55,29 +53,44 @@
   justify-content: space-between;
   align-items: center;
   gap: 6px;
-  margin-bottom: 12px;
-  padding: 4px 8px;
+  margin-bottom: 2px;
+  padding: 10px 8px;
+  border-radius: 8px;
 }
 .saved-link span {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
+}
+.saved-link span svg {
+  align-self: center;
+}
+.saved-link:hover {
+  background-color: var(--hover);
+}
+.saved-link:hover span {
+  display: flex;
 }
 .saved-link span:hover {
   cursor: pointer;
-  color: #991b1b;
 }
 .saved-link a {
-  width: calc(100% - 20px);
+  flex: 1;
+  width: calc(100% - 14px);
   display: block;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 16px;
   white-space: nowrap;
   word-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.saved-link a:hover {
+  color: var(--green);
 }
 
 .top-box {
@@ -87,7 +100,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #565869;
+  border-bottom: 1px solid var(--hover);
   margin-bottom: 16px;
   font-weight: 600;
 }
@@ -104,4 +117,37 @@
 .list {
   height: calc(100vh - 97px);
   overflow-y: auto;
+}
+/* Toast styles with animation */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--green);
+  color: var(--bg);
+  padding: 12px 16px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1001;
+  animation: slideInUp 0.5s ease-out, slideOutDown 0.5s ease-out 1.5s forwards;
+}
+
+/* Keyframe animations */
+@keyframes slideInUp {
+  from {
+    transform: translateY(calc(-100% - 20px)) translateX(-50%);
+  }
+  to {
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0) translateX(-50%);
+  }
+  to {
+    transform: translateY(calc(-100% - 20px)) translateX(-50%);
+  }
 }
